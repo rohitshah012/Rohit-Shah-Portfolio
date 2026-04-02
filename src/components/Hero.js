@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Dialog } from "@headlessui/react";
 import pfp from "../avatar.png";
+import profilePic from '../Assets/Images/dp.jpg'
 import {
   Bars3Icon,
   XMarkIcon,
@@ -43,7 +44,7 @@ export default function Hero() {
           aria-label="Global"
         >
           <div className="flex lg:flex-1">
-            <p className="-m-1.5 p-1.5 font-semibold border border-red-500 cursor-pointer">Download CV 🡻</p>
+            <p className="-m-1.5 p-1.5 font-semibold border border-red-600 cursor-pointer">Download CV 🡻</p>
           </div>
           <div className="flex lg:hidden">
             <button
@@ -142,9 +143,9 @@ export default function Hero() {
           >
             <div className="grid justify-center items-center">
               <img
-                src={pfp}
+                src={profilePic}
                 alt="Rohit shah"
-                className="w-72 rounded-full drop-shadow-2xl"
+                className="w-72 rounded-full drop-shadow-2xl -rotate-90"
               />
             </div>
             <div className="grid justify-center items-center mt-3">
