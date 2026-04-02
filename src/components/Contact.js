@@ -1,11 +1,38 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
+  const form = useRef();
+
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        process.env.REACT_APP_SERVICE_ID,
+        process.env.REACT_APP_TEMPLATE_ID,
+        form.current,
+        process.env.REACT_APP_PUBLIC_ID
+      )
+      .then(
+        (result) => {
+          console.log("SUCCESS!", result.text);
+          alert("Your message is sent successfully");
+          form.current.reset();
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+          alert("Failed to send message. Please try again.");
+        }
+      );
+  };
+
   return (
     <div className="py-24 sm:py-32" id="contact">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -16,6 +43,8 @@ export default function Contact() {
           </p>
         </div>
         <form
+          ref={form}
+          onSubmit={sendEmail}
           action=""
           method="POST"
           className="mx-auto mt-16 max-w-xl sm:mt-20"
