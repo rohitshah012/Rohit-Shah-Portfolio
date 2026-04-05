@@ -47,7 +47,7 @@ export default function Contact() {
           onSubmit={sendEmail}
           action=""
           method="POST"
-          className="mx-auto mt-16 max-w-xl sm:mt-20"
+          className="mx-auto mt-2rem max-w-xl sm:mt-20"
           data-aos="zoom-in"
         >
           <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
@@ -124,7 +124,7 @@ export default function Contact() {
               </div>
             </div>
           </div>
-          <div className="mt-10">
+          <div className="mt-8">
             <button type="submit" className="btn btn-outline text-sm w-full">
               Send it
             </button>

@@ -144,7 +144,7 @@ export default function Hero() {
       <div className="py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div
-            className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 py-32"
+            className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 py-12"
             data-aos="zoom-in"
           >
             <div className="grid justify-center items-center">

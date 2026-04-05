@@ -120,7 +120,7 @@ export default function Skills() {
                     </div>
                     {backend.name}
                   </dt>
-                  <dd className="mt-2 text-base leading-7">
+                  <dd className="mt-2 text-base leading-2">
                     <progress
                       className="progress w-3/4"
                       value={backend.value}
