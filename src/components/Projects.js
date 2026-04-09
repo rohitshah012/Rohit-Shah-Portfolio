@@ -1,16 +1,16 @@
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import p1 from "../Assets/Images/project1.jpeg";
 
 const projects = [
   {
     id: 1,
-    name: "Sprinkles",
-    href: "#",
-    imageSrc:
-      "https://fastly.picsum.photos/id/23/3887/4899.jpg?hmac=2fo1Y0AgEkeL2juaEBqKPbnEKm_5Mp0M2nuaVERE6eE",
-    used: "ReactJS, TailwindCSS",
-    description: "A restaurant website.",
+    name: "Portfolio",
+    href: "https://www.rohitshah.me",
+    imageSrc: p1,
+    used: "ReactJS, TailwindCSS, DaisyUI, Email.js ",
+    description: "A Personal Portfolio Website.",
   },
   {
     id: 2,
@@ -64,7 +64,7 @@ export default function Projects() {
                 <img
                   src={project.imageSrc}
                   alt={project.name}
-                  className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                  className="h-fit w-fit object-cover object-center lg:h-fit lg:w-fit"
                 />
               </div>
               <div className="mt-4 flex justify-between p-4">

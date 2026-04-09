@@ -16,16 +16,17 @@ const frontend = [
   },
   {
     name: "React",
-    value: 80,
+    value: 70,
     icon: CheckCircleIcon,
   },
-  // {
-  //   name: "Next.js",
-  //   value: 60,
-  //   icon: CheckCircleIcon,
-  // },
+
   {
-    name: "TailwindCSS",
+    name: "Redux / Context API",
+    value: 60,
+    icon: CheckCircleIcon,
+  },
+  {
+    name: "TailwindCSS/Bootstrap",
     value: 80,
     icon: CheckCircleIcon,
   },
@@ -33,34 +34,44 @@ const frontend = [
 const backend = [
   {
     name: "NodeJS",
-    value: 40,
+    value: 60,
     icon: CheckCircleIcon,
   },
-  // {
-  //   name: "Python",
-  //   value: 75,
-  //   icon: CheckCircleIcon,
-  // },
   {
-    name: "MySQL",
-    value: 50,
+    name: "Express.JS",
+    value: 75,
     icon: CheckCircleIcon,
   },
   {
     name: "APIs",
-    value: 40,
+    value: 55,
+    icon: CheckCircleIcon,
+  },
+  {
+    name: "REST API Development",
+    value: 70,
+    icon: CheckCircleIcon,
+  },
+  {
+    name: " Authentication (JWT , OAuth)",
+    value: 65,
+    icon: CheckCircleIcon,
+  },
+  {
+    name: "MySQL",
+    value: 75,
     icon: CheckCircleIcon,
   },
   {
     name: "MongoDB",
+    value: 65,
+    icon: CheckCircleIcon,
+  },
+  {
+    name: "PostgreSQL",
     value: 60,
     icon: CheckCircleIcon,
   },
-  // {
-  //   name: "GraphQL",
-  //   value: 30,
-  //   icon: CheckCircleIcon,
-  // },
 ];
 
 export default function Skills() {
