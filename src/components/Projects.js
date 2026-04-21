@@ -1,7 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import p1 from "../Assets/Images/project1.jpeg";
+import p2 from "../Assets/Images/sidcup2.png";
+import p3 from "../Assets/Images/netflix.png";
+import p4 from "../Assets/Images/image.png";
+
 
 const projects = [
   {
@@ -14,38 +18,45 @@ const projects = [
   },
   {
     id: 2,
-    name: "Paper Bag",
-    href: "#",
+    name: "Sidcup Golf Clone",
+    href: "https://rohitshah012.github.io/Sidcup-Family-Golf/",
     imageSrc:
-      "https://fastly.picsum.photos/id/3/5000/3333.jpg?hmac=GDjZ2uNWE3V59PkdDaOzTOuV3tPWWxJSf4fNcxu4S2g",
-    used: "ReactJS, TailwindCSS",
-    description: "An online shopping website.",
+      p2,
+    used: "HTML, CSS , JS",
+    description: "Golf website Clone.",
   },
   {
     id: 3,
-    name: "My Blogs",
-    href: "#",
+    name: "Netflix Clone",
+    href: "https://rohitshah012.github.io/Netflix-Clone/",
     imageSrc:
-      "https://fastly.picsum.photos/id/447/1280/853.jpg?hmac=4DUUCOsHRIoYbNrPRYEUHOW7wCjM7TROrTrYFivtdPw",
+     p3,
 
-    used: "ReactJS, TailwindCSS",
-    description: "A personal blogging website.",
+    used: "HTML, CSS , JS",
+    description: " Online Movie & Series Streaming Platform.",
   },
   {
     id: 4,
-    name: "Canopy",
-    href: "#",
+    name: "Weather Hub",
+    href: "https://rohitshah012.github.io/WeatherHub/",
     imageSrc:
-      "https://fastly.picsum.photos/id/366/4000/3000.jpg?hmac=zphhHOH9ofToN2jNHd8z-nc98NrBd8y2okWXEXetLDg",
-    used: "ReactJS, TailwindCSS",
-    description: "An online educational website.",
+     p4,
+    used: "HTML, CSS , JS , API Integration",
+    description: "Realtime Weather Data App.",
   },
 ];
 
+const PROJECTS_PER_ROW = 3;
+
 export default function Projects() {
+  const [visibleCount, setVisibleCount] = useState(PROJECTS_PER_ROW);
+
   useEffect(() => {
     AOS.init({ duration: 2000 });
   }, []);
+
+  const visibleProjects = projects.slice(0, visibleCount);
+
   return (
     <div id="projects">
       <div className="mx-auto max-w-2xl px-6 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8">
@@ -53,21 +64,22 @@ export default function Projects() {
         <p className="mt-2 text-4xl font-bold tracking-tight sm:text-6xl">
           Projects
         </p>
-        <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-          {projects.map((project) => (
+        <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+          {visibleProjects.map((project) => (
             <div
               key={project.id}
-              className="group relative ring-2 ring-base-300 bg-base-200 rounded-2xl shadow-xl"
+              className="group relative h-full overflow-hidden rounded-2xl bg-base-200 shadow-xl ring-2 ring-base-300"
               data-aos="flip-left"
             >
-              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md lg:aspect-none group-hover:brightness-75 duration-300 delay-100 lg:h-80 rounded-t-2xl ">
+              <div className="aspect-[16/10] w-full overflow-hidden rounded-t-2xl bg-base-300">
                 <img
                   src={project.imageSrc}
                   alt={project.name}
-                  className="h-fit w-fit object-cover object-center lg:h-fit lg:w-fit"
+                  className="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
+                  loading="lazy"
                 />
               </div>
-              <div className="mt-4 flex justify-between p-4">
+              <div className="mt-4 flex h-full justify-between p-4">
                 <div className="p-4">
                   <h3 className="text-lg font-bold">
                     <a href={project.href}>
@@ -82,9 +94,20 @@ export default function Projects() {
             </div>
           ))}
         </div>
-        <div className="mt-16 flex justify-center">
-          <button className="btn btn-outline">View More</button>
-        </div>
+        {visibleCount < projects.length && (
+          <div className="mt-16 flex justify-center">
+            <button
+              className="btn btn-outline"
+              onClick={() =>
+                setVisibleCount((currentCount) =>
+                  Math.min(currentCount + PROJECTS_PER_ROW, projects.length)
+                )
+              }
+            >
+              View More
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
