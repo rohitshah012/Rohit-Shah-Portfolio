@@ -4,7 +4,7 @@ import "aos/dist/aos.css";
 import p1 from "../Assets/Images/project1.jpeg";
 import p2 from "../Assets/Images/sidcup2.png";
 import p3 from "../Assets/Images/netflix.png";
-// import p4 from "../Assets/Images/image.png";
+import p4 from "../Assets/Images/myntra.png";
 import p5 from "../Assets/Images/petformate.png";
 import p6 from "../Assets/Images/spotify.png";
 import p7 from "../Assets/Images/memegen.png";
@@ -39,15 +39,15 @@ const projects = [
     used: "HTML, CSS , JS",
     description: " Online Movie & Series Streaming Platform.",
   },
-  // {
-  //   id: 4,
-  //   name: "Weather Hub",
-  //   href: "https://rohitshah012.github.io/WeatherHub/",
-  //   imageSrc:
-  //    p4,
-  //   used: "HTML, CSS , JS , API Integration",
-  //   description: "Realtime Weather Data App.",
-  // },
+  {
+    id: 4,
+    name: "Myntra Clone",
+    href: "https://rohitshah012.github.io/Myntra-clone/",
+    imageSrc:
+     p4,
+    used: "HTML, CSS , JS , API Integration",
+    description: "E-Commerce Application.",
+  },
   {
     id: 5,
     name: "Pet4Mate",
