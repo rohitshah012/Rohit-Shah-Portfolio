@@ -34,11 +34,11 @@ export default function Contact() {
   };
 
   return (
-    <div className="py-24 sm:py-32" id="contact">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <div className="py-16 sm:py-32" id="contact">
+      <div className="section-shell">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-xl leading-7">Get in touch</h2>
-          <p className="mt-2 text-4xl font-bold tracking-tight sm:text-6xl">
+          <h2 className="section-kicker">Have a project in mind?</h2>
+          <p className="section-title">
             Contact Me
           </p>
         </div>
@@ -47,10 +47,10 @@ export default function Contact() {
           onSubmit={sendEmail}
           action=""
           method="POST"
-          className="mx-auto mt-2rem max-w-xl sm:mt-20"
-          data-aos="zoom-in"
+          className="surface-card mx-auto mt-8 max-w-2xl p-5 sm:mt-12 sm:p-10"
+          data-aos="fade-up"
         >
-          <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-x-8 gap-y-5 sm:grid-cols-2 sm:gap-y-6">
             <div>
               <label
                 htmlFor="first-name"
@@ -65,7 +65,7 @@ export default function Contact() {
                   name="first-name"
                   id="first-name"
                   autoComplete="given-name"
-                  className="block bg-transparent w-full rounded-md border-0 px-3.5 py-2 text-current ring-1 ring-inset ring-base-content focus:ring-2 focus:ring-inset focus:ring-current sm:text-sm sm:leading-6"
+                  className="block w-full rounded-xl border-base-content/10 bg-base-100/60 px-4 py-3 text-current focus:border-indigo-500 focus:ring-indigo-500"
                 />
               </div>
             </div>
@@ -83,7 +83,7 @@ export default function Contact() {
                   name="last-name"
                   id="last-name"
                   autoComplete="family-name"
-                  className="block bg-transparent w-full rounded-md border-0 px-3.5 py-2 text-current ring-1 ring-inset ring-base-content focus:ring-2 focus:ring-inset focus:ring-current sm:text-sm sm:leading-6"
+                  className="block w-full rounded-xl border-base-content/10 bg-base-100/60 px-4 py-3 text-current focus:border-indigo-500 focus:ring-indigo-500"
                 />
               </div>
             </div>
@@ -101,7 +101,7 @@ export default function Contact() {
                   name="email"
                   id="email"
                   autoComplete="email"
-                  className="block bg-transparent w-full rounded-md border-0 px-3.5 py-2 text-current ring-1 ring-inset ring-base-content focus:ring-2 focus:ring-inset focus:ring-current sm:text-sm sm:leading-6"
+                  className="block w-full rounded-xl border-base-content/10 bg-base-100/60 px-4 py-3 text-current focus:border-indigo-500 focus:ring-indigo-500"
                 />
               </div>
             </div>
@@ -118,15 +118,15 @@ export default function Contact() {
                   required
                   id="message"
                   rows={4}
-                  className="block bg-transparent w-full rounded-md border-0 px-3.5 py-2 text-current ring-1 ring-inset ring-base-content focus:ring-2 focus:ring-inset focus:ring-current sm:text-sm sm:leading-6"
+                  className="block w-full rounded-xl border-base-content/10 bg-base-100/60 px-4 py-3 text-current focus:border-indigo-500 focus:ring-indigo-500"
                   defaultValue={""}
                 />
               </div>
             </div>
           </div>
           <div className="mt-8">
-            <button type="submit" className="btn btn-outline text-sm w-full">
-              Send it
+            <button type="submit" className="primary-button w-full">
+              Send message
             </button>
           </div>
         </form>

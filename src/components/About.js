@@ -39,18 +39,18 @@ export default function About() {
   }, []);
   return (
     <div
-      className="relative isolate overflow-hidden  px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0"
+      className="relative isolate overflow-hidden py-16 sm:py-32"
       id="about"
     >
-      <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
+      <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-10 px-4 sm:gap-y-16 sm:px-6 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10 lg:px-0">
         <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
           <div className="lg:pr-4">
             <div className="lg:max-w-lg">
-              <h2 className="text-lg leading-7">Get to know more</h2>
-              <p className="mt-2 text-4xl font-bold tracking-tight sm:text-6xl">
+              <h2 className="section-kicker">Get to know me</h2>
+              <p className="section-title">
                 About Me
               </p>
-              <p className="mt-6 text-lg leading-8" data-aos="fade-right">
+              <p className="mt-5 text-base leading-7 text-base-content/65 sm:mt-6 sm:text-lg sm:leading-8" data-aos="fade-right">
 
 
                 I am Rohit Shah, a 3rd-year BCA student at Maharaja Surajmal Institute, affiliated with GGSIPU, and a B.Com graduate from Swami Vivekanand Subharti University with a CGPA of 8.4 . I am a passionate MERN stack developer specializing in building modern, responsive web applications using React. I focus on creating clean, user-friendly interfaces and continuously enhance my skills in Node.js, Express, and MongoDB to grow as a full-stack developer.
@@ -62,25 +62,25 @@ export default function About() {
           </div>
         </div>
         <div
-          className="-ml-12 -mt-12 p-12 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden"
+          className="mx-auto w-full max-w-xl lg:-ml-12 lg:-mt-12 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden lg:p-12"
           data-aos="fade-left"
         >
           <img
-            className="w-[38rem] ring-2 ring-base-300 max-w-none rounded-xl  shadow-xl sm:w-[35rem]"
+            className="aspect-[4/5] h-auto w-full rounded-2xl border border-base-content/10 object-cover object-center shadow-2xl sm:rounded-[2rem] lg:w-[35rem] lg:max-w-none"
             src={photo}
             alt="Person"
           />
         </div>
       </div>
-      <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
+      <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-10 px-4 sm:px-6 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10 lg:px-0">
         <div className="lg:col-span-2 lg:col-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:gap-x-8 lg:px-8">
           <div className="text-base leading-7">
             <div className="grid gap-x-6 sm:grid-cols-2">
               <div
-                className="ring-2 ring-base-300 bg-base-200 rounded-2xl mt-10 p-5 shadow-xl"
+                className="surface-card mt-8 p-5 transition hover:-translate-y-1 sm:mt-10 sm:p-7"
                 data-aos="zoom-in"
               >
-                <BriefcaseIcon className="h-5 w-5 mx-auto" aria-hidden="true" />
+                <BriefcaseIcon className="mx-auto h-8 w-8 text-indigo-500" aria-hidden="true" />
                 <h2 className=" text-2xl text-center font-bold tracking-tight">
                   Experience
                 </h2>
@@ -93,11 +93,11 @@ export default function About() {
 
               </div>
               <div
-                className="ring-2 ring-base-300 bg-base-200 rounded-2xl mt-10 p-5 shadow-xl"
+                className="surface-card mt-5 p-5 transition hover:-translate-y-1 sm:mt-10 sm:p-7"
                 data-aos="zoom-in"
               >
                 <AcademicCapIcon
-                  className="h-5 w-5 mx-auto"
+                  className="mx-auto h-8 w-8 text-indigo-500"
                   aria-hidden="true"
                 />
                 <h2 className=" text-2xl text-center font-bold tracking-tigh">
@@ -115,19 +115,19 @@ export default function About() {
               </div>
             </div>
             <dl
-              className="mt-10 space-y-8 text-base leading-7 lg:max-w-none"
+              className="surface-card mt-8 grid gap-6 p-5 text-sm leading-6 sm:mt-10 sm:grid-cols-2 sm:p-7 sm:text-base sm:leading-7 lg:max-w-none"
               data-aos="fade-right"
             >
               {features.map((feature) => (
                 <div key={feature.name} className="relative pl-9">
                   <dt className="inline font-semibold">
                     <feature.icon
-                      className="absolute left-1 top-1 h-5 w-5"
+                      className="absolute left-1 top-1 h-5 w-5 text-indigo-500"
                       aria-hidden="true"
                     />
                     {feature.name}
                   </dt>{" "}
-                  <dd className="inline">{feature.description}</dd>
+                  <dd className="inline break-words">{feature.description}</dd>
                 </div>
               ))}
             </dl>

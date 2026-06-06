@@ -1,229 +1,250 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Dialog } from "@headlessui/react";
-import dp from "../Assets/Images/dp.jpg"
-import { FaDownload } from "react-icons/fa";
 import {
   Bars3Icon,
-  XMarkIcon,
-  SunIcon,
   MoonIcon,
+  SunIcon,
+  XMarkIcon,
 } from "@heroicons/react/24/outline";
+import { FaDownload, FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { Link } from "react-scroll";
 import { TypeAnimation } from "react-type-animation";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import dp from "../Assets/Images/dp.jpg";
 
 const navigation = [
-  { name: "About Me", id: "about" },
+  { name: "About", id: "about" },
   { name: "Skills", id: "skills" },
   { name: "Projects", id: "projects" },
-  { name: "Contact Me", id: "contact" },
+  { name: "Contact", id: "contact" },
 ];
 
 export default function Hero() {
   const [theme, setTheme] = useState(
-    localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
+    () => localStorage.getItem("theme") || "light"
   );
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   useEffect(() => {
     localStorage.setItem("theme", theme);
-    const localTheme = localStorage.getItem("theme");
-    document.querySelector("html").setAttribute("data-theme", localTheme);
+    document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   useEffect(() => {
-    AOS.init({ duration: 2000 });
+    AOS.init({ duration: 900, once: true });
   }, []);
-  const handleToggle = (e) => {
-    e.target.checked ? setTheme("dark") : setTheme("light");
-  };
 
-  
-
+  const themeToggle = (
+    <button
+      type="button"
+      className="flex h-10 w-10 items-center justify-center rounded-full border border-base-content/10 bg-base-200 transition hover:border-indigo-500 hover:text-indigo-500"
+      onClick={() => setTheme((current) => current === "dark" ? "light" : "dark")}
+      aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+      title={theme === "dark" ? "Light mode" : "Dark mode"}
+    >
+      {theme === "dark" ? (
+        <SunIcon className="h-5 w-5" aria-hidden="true" />
+      ) : (
+        <MoonIcon className="h-5 w-5" aria-hidden="true" />
+      )}
+    </button>
+  );
 
   return (
-    <div>
-      <header className="fixed bg-base-300 shadow-2xl shadow-neutral inset-x-0 top-0 z-50">
-        <nav
-          className="flex items-center justify-between p-6 lg:px-8"
-          aria-label="Global"
-        >
-          <div className="flex  lg:flex-1">
-            <a href="/RohitShahResume.pdf" download className="no-underline">
-              <button className="flex items-center gap-2 -m-1.5 p-1.5 px-3 font-semibold border border-red-600 cursor-pointer hover:bg-red-600 hover:text-white transition-colors rounded">RESUME <FaDownload className="text-lg" /> </button>
-            </a>
-          </div>
-          <div className="flex lg:hidden">
-            <button
-              type="button"
-              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5"
-              onClick={() => setMobileMenuOpen(true)}
-            >
-              <span className="sr-only">Open main menu</span>
-              <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-            </button>
-          </div>
-          <div className="hidden lg:flex lg:gap-x-12">
+    <div className="grid-pattern min-h-screen">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-base-content/10 bg-base-100/80 backdrop-blur-xl">
+        <nav className="section-shell flex h-16 items-center justify-between sm:h-20">
+          <a
+            href="#top"
+            className="flex items-center gap-3 text-lg font-black tracking-tight"
+          >
+            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-600 text-white">
+              RS
+            </span>
+            <span className="hidden sm:block">Rohit Shah</span>
+          </a>
+
+          <div className="hidden items-center rounded-full border border-base-content/10 bg-base-200/60 p-1.5 lg:flex">
             {navigation.map((item) => (
               <Link
+                key={item.id}
                 to={item.id}
-                spy={true}
-                smooth={true}
-                offset={50}
+                spy
+                smooth
+                offset={-72}
                 duration={500}
-                className="text-sm font-semibold leading-6 cursor-pointer relative w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-current after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-left"
+                activeClass="text-indigo-500 bg-base-100 shadow-sm"
+                className="cursor-pointer rounded-full px-4 py-2 text-sm font-semibold transition hover:text-indigo-500"
               >
                 {item.name}
               </Link>
             ))}
           </div>
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <label className="swap swap-rotate">
-              <input
-                type="checkbox"
-                className="hidden"
-                onChange={handleToggle}
-                checked={theme === "light" ? false : true}
-              />
 
-              <SunIcon className="swap-off fill-current w-6 h-6" />
-              <MoonIcon className="swap-on fill-current w-6 h-6" />
-            </label>
+          <div className="hidden items-center gap-3 lg:flex">
+            <a
+              href="/RohitShahResume.pdf"
+              download
+              className="secondary-button !px-4 !py-2"
+            >
+              Resume <FaDownload />
+            </a>
+            {themeToggle}
           </div>
+
+          <button
+            type="button"
+            className="rounded-xl border border-base-content/10 p-2.5 lg:hidden"
+            onClick={() => setMobileMenuOpen(true)}
+            aria-label="Open navigation"
+          >
+            <Bars3Icon className="h-6 w-6" />
+          </button>
         </nav>
+
         <Dialog
           as="div"
           className="lg:hidden"
           open={mobileMenuOpen}
           onClose={setMobileMenuOpen}
         >
-          <div className="fixed inset-0 z-50" />
-          <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-2/3 overflow-y-auto backdrop-brightness-90 backdrop-blur-2xl bg-transparent px-6 py-6 sm:max-w-sm">
+          <div className="fixed inset-0 z-50 bg-black/30 backdrop-blur-sm" />
+          <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-[88%] max-w-sm overflow-y-auto border-l border-base-content/10 bg-base-100 p-5 shadow-2xl sm:p-6">
             <div className="flex items-center justify-between">
-              <div className="-m-1.5 p-1.5">
-                <label className="swap swap-rotate">
-                  <input
-                    type="checkbox"
-                    className="hidden"
-                    onChange={handleToggle}
-                    checked={theme === "light" ? false : true}
-                  />
-                  <SunIcon className="swap-off fill-current w-6 h-6" />
-                  <MoonIcon className="swap-on fill-current w-6 h-6" />
-                </label>
-              </div>
+              {themeToggle}
               <button
                 type="button"
-                className="-m-2.5 rounded-md p-2.5"
+                className="rounded-xl border border-base-content/10 p-2.5"
                 onClick={() => setMobileMenuOpen(false)}
+                aria-label="Close navigation"
               >
-                <span className="sr-only">Close menu</span>
-                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                <XMarkIcon className="h-6 w-6" />
               </button>
             </div>
-            <div className="mt-6 flow-root">
-              <div className="-my-6 divide-y">
-                <div className="space-y-2 py-6">
-                  {navigation.map((item) => (
-                    <Link
-                      to={item.id}
-                      spy={true}
-                      smooth={true}
-                      offset={50}
-                      duration={500}
-                      className="-mx-3 block rounded-lg px-3 py-2 font-semibold leading-7 btn btn-ghost"
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
-              </div>
+            <div className="mt-10 space-y-2">
+              {navigation.map((item) => (
+                <Link
+                  key={item.id}
+                  to={item.id}
+                  smooth
+                  offset={-72}
+                  duration={500}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block cursor-pointer rounded-xl px-4 py-3 font-semibold transition hover:bg-indigo-500/10 hover:text-indigo-500"
+                >
+                  {item.name}
+                </Link>
+              ))}
+              <a
+                href="/RohitShahResume.pdf"
+                download
+                className="primary-button mt-5 w-full"
+              >
+                Download resume <FaDownload />
+              </a>
             </div>
           </Dialog.Panel>
         </Dialog>
       </header>
-      <div className="py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div
-            className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 py-12"
-            data-aos="zoom-in"
-          >
-            <div className="grid justify-center items-center">
-              <img
-                src={dp}
-              
-                alt="Rohit shah"
-                className="w-72 rounded-full drop-shadow-2xl -rotate-90"
-              />
-            </div>
-            <div className="grid justify-center items-center mt-3">
-              <div className="text-center">
-                <div className="text-2xl tracking-tight sm:text-3xl">
-                  Hello, I'm
-                </div>
-              </div>
-              <div className="text-center">
-                <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
-                  Rohit Shah
-                </h1>
-                <p className="mt-6 text-2xl leading-8">
-                  <TypeAnimation
-                    sequence={[
-                      "I'm a MERN Stack Developer",
-                      2000,
-                      "I'm a UI/UX Designer",
-                      2000,
-                      "I'm a Web Developer",
-                      2000,
-                    ]}
-                    speed={50}
-                    repeat={Infinity}
-                  />
-                </p>
-                <div className="mt-10 flex items-center justify-center gap-x-6">
-                  <p>
-                   MERN Stack Developer focused on building modern, responsive React applications, with growing expertise in Node.js, Express, and MongoDB.
-                  </p>
-                </div>
-                <div className="mt-10 flex items-center justify-center gap-x-4">
-                  <a
-                    href="https://www.linkedin.com/in/rohitshah9958"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <button className="btn btn-outline btn-square">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="currentColor"
-                        className="h-8 w-8"
-                        viewBox="0 0 16 16"
-                      >
-                        <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
-                      </svg>
-                    </button>
-                  </a>
 
-                  <a
-                    href="https://github.com/rohitshah012"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <button className="btn btn-outline btn-square">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-8 w-8"
-                        fill="currentColor"
-                        viewBox="0 0 16 16"
-                      >
-                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-                      </svg>
-                    </button>
-                  </a>
+      <main id="top" className="flex min-h-screen items-center pb-16 pt-24 sm:pb-20 sm:pt-28">
+        <div className="section-shell w-full">
+          <div
+            className="grid items-center gap-12 py-6 sm:gap-16 sm:py-10 lg:grid-cols-[1.1fr_0.9fr]"
+            data-aos="fade-up"
+          >
+            <div className="order-2 text-center lg:order-1 lg:text-left">
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-indigo-500/20 bg-indigo-500/10 px-3 py-2 text-xs font-bold text-indigo-500 sm:mb-6 sm:px-4 sm:text-sm">
+                <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-500" />
+                Available for opportunities
+              </div>
+              <h1 className="text-[2.65rem] font-black leading-[1.05] tracking-tight min-[375px]:text-5xl sm:text-7xl lg:text-8xl">
+                Building digital
+                <span className="gradient-text block">experiences.</span>
+              </h1>
+              <p className="mt-5 min-h-8 text-lg font-semibold text-base-content/80 sm:mt-6 sm:text-2xl">
+                <TypeAnimation
+                  sequence={[
+                    "MERN Stack Developer",
+                    2000,
+                    "UI/UX Designer",
+                    2000,
+                    "Web Developer",
+                    2000,
+                  ]}
+                  speed={50}
+                  repeat={Infinity}
+                />
+              </p>
+              <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-base-content/65 sm:mt-6 sm:text-base sm:leading-8 lg:mx-0 lg:text-lg">
+                I&apos;m Rohit Shah, a developer crafting responsive React
+                applications with thoughtful interfaces and reliable full-stack
+                foundations.
+              </p>
+              <div className="mt-7 grid grid-cols-1 gap-3 min-[390px]:grid-cols-2 lg:flex lg:justify-start">
+                <Link
+                  to="projects"
+                  smooth
+                  offset={-72}
+                  duration={500}
+                  className="primary-button w-full cursor-pointer"
+                >
+                  View my work
+                </Link>
+                <Link
+                  to="contact"
+                  smooth
+                  offset={-72}
+                  duration={500}
+                  className="secondary-button w-full cursor-pointer"
+                >
+                  Let&apos;s talk
+                </Link>
+              </div>
+              <div className="mt-8 flex justify-center gap-3 lg:justify-start">
+                <a
+                  href="https://www.linkedin.com/in/rohitshah9958"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-base-content/15 transition hover:-translate-y-1 hover:border-indigo-500 hover:text-indigo-500"
+                  aria-label="LinkedIn profile"
+                >
+                  <FaLinkedinIn />
+                </a>
+                <a
+                  href="https://github.com/rohitshah012"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-base-content/15 transition hover:-translate-y-1 hover:border-indigo-500 hover:text-indigo-500"
+                  aria-label="GitHub profile"
+                >
+                  <FaGithub />
+                </a>
+              </div>
+            </div>
+
+            <div className="order-1 flex justify-center px-7 sm:px-0 lg:order-2">
+              <div className="relative w-full max-w-[17rem] sm:max-w-none">
+                <div className="absolute -inset-5 rounded-[2.5rem] bg-gradient-to-br from-indigo-500 to-cyan-400 opacity-25 blur-2xl" />
+                <div className="relative overflow-hidden rounded-[2rem] border border-white/20 bg-base-200 p-2 shadow-2xl shadow-indigo-950/20 sm:rounded-[2.5rem] sm:p-3">
+                  <img
+                    src={dp}
+                    alt="Rohit Shah"
+                    className="aspect-square h-auto w-full -rotate-90 rounded-[1.5rem] object-cover sm:h-[29rem] sm:w-[24rem] sm:rounded-[2rem]"
+                  />
+                </div>
+                <div className="absolute -bottom-5 -left-5 rounded-xl border border-base-content/10 bg-base-100/90 px-4 py-3 shadow-xl backdrop-blur sm:-left-8 sm:rounded-2xl sm:px-5 sm:py-4">
+                  <p className="text-xs font-bold uppercase tracking-widest text-indigo-500">
+                    Based in
+                  </p>
+                  <p className="mt-1 font-bold">New Delhi, India</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </main>
     </div>
   );
 }
