@@ -15,21 +15,6 @@ A modern, responsive, and interactive personal portfolio website showcasing prof
 
 ---
 
-## 📋 Table of Contents
-
-- [About](#about)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [Components](#components)
-- [Contact Form Setup](#contact-form-setup)
-- [Deployment](#deployment)
-- [Contributing](#contributing)
-- [License](#license)
-
----
 
 ## 🎯 About
 
@@ -115,28 +100,6 @@ A fully responsive professional portfolio website built with modern web technolo
 
 ---
 
-## 💻 Usage
-
-### Development Mode
-```bash
-npm start
-```
-Runs the app in development mode with hot reload enabled.
-
-### Build for Production
-```bash
-npm run build
-```
-Creates an optimized production build in the `build/` folder.
-
-### Run Tests
-```bash
-npm test
-```
-Launches the test runner in interactive watch mode.
-
----
-
 ## 📁 Project Structure
 
 ```
@@ -160,71 +123,6 @@ public/
 ├── manifest.json       # PWA manifest
 └── robots.txt          # SEO robots file
 
-build/                  # Production build output
-```
-
----
-
-## 🧩 Components
-
-### Hero Component
-Landing section with welcome message and call-to-action buttons.
-
-### About Component
-Personal background, education, and professional summary.
-
-### Skills Component
-Displays technical skills organized by category.
-
-### Projects Component
-Showcases completed projects with descriptions and links.
-
-### Contact Component
-Contact form integrated with EmailJS for direct messaging.
-
-### Footer Component
-Social links and copyright information.
-
----
-
-## 📧 Contact Form Setup
-
-This portfolio uses **EmailJS** for contact form functionality.
-
-1. Sign up at [EmailJS](https://www.emailjs.com)
-2. Create an email service and template
-3. Add your EmailJS credentials to the Contact component:
-   ```javascript
-   emailjs.init("YOUR_PUBLIC_KEY");
-   ```
-
----
-
-## 🌐 Deployment
-
-### Deploy to Vercel (Recommended)
-
-1. **Push to GitHub**
-   ```bash
-   git add .
-   git commit -m "Initial commit"
-   git push origin main
-   ```
-
-2. **Connect to Vercel**
-   - Visit [Vercel](https://vercel.com)
-   - Import your GitHub repository
-   - Configure build settings (default: `npm run build`)
-   - Deploy
-
-3. **Custom Domain**
-   - Add your domain in Vercel project settings
-   - Update DNS records according to Vercel instructions
-
-### Other Deployment Options
-- **Netlify** - Connect GitHub repo and auto-deploy on push
-- **GitHub Pages** - Use `gh-pages` package for static hosting
-- **Traditional Hosting** - Upload `build/` folder to any web server
 
 ---
 
