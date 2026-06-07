@@ -12,6 +12,7 @@ import { TypeAnimation } from "react-type-animation";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import dp from "../Assets/Images/dp.jpg";
+import { Crown } from "lucide-react";
 
 const navigation = [
   { name: "About", id: "about" },
@@ -55,15 +56,18 @@ export default function Hero() {
     <div className="grid-pattern min-h-screen">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-base-content/10 bg-base-100/80 backdrop-blur-xl">
         <nav className="section-shell flex h-16 items-center justify-between sm:h-20">
-          <a
-            href="#top"
-            className="flex items-center gap-3 text-lg font-black tracking-tight"
-          >
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-600 text-white">
-              RS
-            </span>
-            <span className="hidden sm:block">Rohit Shah</span>
-          </a>
+      <a
+  href="#top"
+  className="flex items-center gap-3"
+>
+  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-r from-amber-500 to-yellow-400 text-white shadow-lg">
+    <Crown size={22} />
+  </span>
+
+  <span className="hidden sm:block text-xl font-extrabold tracking-wide font-serif">
+    Rohit Shah
+  </span>
+</a>
 
           <div className="hidden items-center rounded-full border border-base-content/10 bg-base-200/60 p-1.5 lg:flex">
             {navigation.map((item) => (

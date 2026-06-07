@@ -85,10 +85,10 @@ export default function About() {
                   Experience
                 </h2>
                 <p className="mt-3 list-item list-inside">
-                  Successfully completed multiple freelance projects
+                  Junior Full Stack Developer @Fairarena For 5 Months
                 </p>
                 <p className="mt-3 list-item list-inside">
-                  Actively contributed to open-source projects
+                  Mentor - Google Developer Group (GDG MSI) For 2 Months
                 </p>
 
               </div>
@@ -104,10 +104,10 @@ export default function About() {
                   Education
                 </h2>
                 <p className="mt-3 list-item list-inside">
-                  3rd-Year BCA Student at MSI
+                  3rd-Year BCA Student at MSI (GGSIPU)
                 </p>
                 <p className="mt-3 list-item list-inside">
-                  B.Com Graduate from SVSU
+                  B.Com Graduate From SVSU
                 </p>
                 <p className="mt-3 list-item list-inside">
                   MERN Stack Developer (React, Node.js, Express, MongoDB)

@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import p1 from "../Assets/Images/project1.jpeg";
-import p2 from "../Assets/Images/sidcup2.png";
-import p3 from "../Assets/Images/netflix.png";
+// import p2 from "../Assets/Images/sidcup2.png";
+// import p3 from "../Assets/Images/netflix.png";
 import p4 from "../Assets/Images/myntra.png";
-import p5 from "../Assets/Images/petformate.png";
+// import p5 from "../Assets/Images/petformate.png";
 import p6 from "../Assets/Images/spotify.png";
 import p7 from "../Assets/Images/memegen.png";
 
@@ -20,50 +20,50 @@ const projects = [
     used: "ReactJS, TailwindCSS, DaisyUI, Email.js ",
     description: "A Personal Portfolio Website.",
   },
-  {
-    id: 2,
-    name: "Sidcup Golf Clone",
-    href: "https://rohitshah012.github.io/Sidcup-Family-Golf/",
-    imageSrc:
-      p2,
-    used: "HTML, CSS , JS",
-    description: "Golf website Clone.",
-  },
-  {
-    id: 3,
-    name: "Netflix Clone",
-    href: "https://rohitshah012.github.io/Netflix-Clone/",
-    imageSrc:
-     p3,
+  // {
+  //   id: 2,
+  //   name: "Sidcup Golf Clone",
+  //   href: "https://rohitshah012.github.io/Sidcup-Family-Golf/",
+  //   imageSrc:
+  //     p2,
+  //   used: "HTML, CSS , JS",
+  //   description: "Golf website Clone.",
+  // },
+  // {
+  //   id: 3,
+  //   name: "Netflix Clone",
+  //   href: "https://rohitshah012.github.io/Netflix-Clone/",
+  //   imageSrc:
+  //    p3,
 
-    used: "HTML, CSS , JS",
-    description: " Online Movie & Series Streaming Platform.",
-  },
+  //   used: "HTML, CSS , JS",
+  //   description: " Online Movie & Series Streaming Platform.",
+  // },
   {
     id: 4,
     name: "Myntra Clone",
     href: "https://rohitshah012.github.io/Myntra-clone/",
     imageSrc:
      p4,
-    used: "HTML, CSS , JS , API Integration",
+    used: "JavaScript Application",
     description: "E-Commerce Application.",
   },
-  {
-    id: 5,
-    name: "Pet4Mate",
-    href: "https://rohitshah012.github.io/Pets4Mate/",
-    imageSrc:
-     p5,
-    used: "JavaScript",
-    description: "Web app for Pet Owner to find perfect mating pet",
-  },
+  // {
+  //   id: 5,
+  //   name: "Pet4Mate",
+  //   href: "https://rohitshah012.github.io/Pets4Mate/",
+  //   imageSrc:
+  //    p5,
+  //   used: "JavaScript Application",
+  //   description: "Web app for Pet Owner to find perfect mating pet",
+  // },
   {
     id: 6,
     name: "Spotify - Online Music Player",
     href: "https://rohitshah012.github.io/spotify/",
     imageSrc:
      p6,
-    used: "JavaScript",
+    used: "JavaScript Application",
     description: "Funcional Music Player",
   },
   {
