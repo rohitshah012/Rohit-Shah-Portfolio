@@ -88,7 +88,7 @@ export default function Hero() {
 
           <div className="hidden items-center gap-3 lg:flex">
             <a
-              href="/RohitShahResume.pdf"
+              href="/RohitShahCV.pdf"
               download
               className="secondary-button !px-4 !py-2"
             >
