@@ -141,7 +141,7 @@ export default function Hero() {
                 </Link>
               ))}
               <a
-                href="/RohitShahResume.pdf"
+                href="/RohitShahCV.pdf"
                 download
                 className="primary-button mt-5 w-full"
               >
